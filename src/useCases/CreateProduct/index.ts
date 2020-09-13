@@ -2,9 +2,11 @@ import { DataBaseProductsRepository } from '../../repositories/implementations/D
 import { CreateProductController } from './CreateProductController';
 import { CreateProductUseCase } from './CreateProductUseCase';
 
-const dataBaseUsersRepository = new DataBaseProductsRepository();
+const dataBaseProductsRepository = new DataBaseProductsRepository();
 
-const createProductUseCase = new CreateProductUseCase(dataBaseUsersRepository);
+const createProductUseCase = new CreateProductUseCase(
+  dataBaseProductsRepository
+);
 
 const createProductController = new CreateProductController(
   createProductUseCase

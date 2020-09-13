@@ -27,4 +27,19 @@ export class DataBaseProductsRepository implements IProductRepository {
       return products;
     }
   }
+
+  async deleteProduct(id: string): Promise<void> {
+    const repo = getRepository(Product);
+
+    await repo.delete({ id });
+  }
+
+  async findByIdProduct(id: string): Promise<Product | undefined> {
+    const repo = getRepository(Product);
+    const product = repo.findOne({ where: { id } });
+
+    if (product) {
+      return product;
+    }
+  }
 }
